@@ -1,13 +1,7 @@
 Rails.application.routes.draw do
-  get 'welcome/new'
-
-  get 'sessions/new'
-
-  get 'sessions/create'
-
-  get 'users/new'
-
-  get 'users/create'
-
+  resources :users, only: [:new, :create]
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/welcome' => 'welcome#new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
